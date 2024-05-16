@@ -20,19 +20,19 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
       - name: build docker image
-        run: docker build -t test/text-ixadmin .
+        run: docker build -t anshulsingh141/text-ixadmin .
       - name: publish image to docker hub
-        run: docker push test/text-ixadmin:latest
+        run: docker push anshulsingh141/text-ixadmin:latest
 
   deploy:
     needs: build
     runs-on: [aws-ec2]
     steps:
       - name: Pull Image from docker hub
-        run: docker pull in test/text-ixadmin:latest
+        run: docker pull in anshulsingh141/text-ixadmin:latest
       - name: Delete old container
-        run: docker rm -f test/text-ixadmin
+        run: docker rm -f text-ixadmin-container
       - name: Run docker container
-        run: docker run -d -p 8082:8082 --name springboot-example-container test/text-ixadmin
+        run: docker run -d -p 8082:8082 --name springboot-example-container anshulsingh141/text-ixadmin
 
 
