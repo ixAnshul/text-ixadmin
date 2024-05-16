@@ -29,10 +29,10 @@ jobs:
     runs-on: [aws-ec2]
     steps:
       - name: Pull Image from docker hub
-        run: docker pull anshulsingh141/text-ixadmin:latest
+        run: sudo docker pull anshulsingh141/text-ixadmin:latest
       - name: Delete old container
-        run: docker rm -f text-ixadmin-container
+        run: sudo docker rm -f text-ixadmin-container
       - name: Run docker container
-        run: docker run -d -p 8082:8082 --name springboot-example-container anshulsingh141/text-ixadmin
+        run: sudo docker run -d -p 8082:8082 --name springboot-example-container anshulsingh141/text-ixadmin
 
 
