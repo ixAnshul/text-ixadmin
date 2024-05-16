@@ -29,7 +29,7 @@ jobs:
     runs-on: [aws-ec2]
     steps:
       - name: Pull Image from docker hub
-        run: docker pull in anshulsingh141/text-ixadmin:latest
+        run: docker pull anshulsingh141/text-ixadmin:latest
       - name: Delete old container
         run: docker rm -f text-ixadmin-container
       - name: Run docker container
